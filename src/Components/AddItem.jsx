@@ -7,9 +7,7 @@ export default function AddItem({ data, setItem }) {
         e.preventDefault()
         console.log('clicked', e.target[1].value)
         newData.owes.push({month: e.target[0].value, amount: parseInt(e.target[1].value)})
-        console.log('after append', newData)
-        setItem(newData)
-        console.log('after state', data)
+        handleFetch(newData)
     }
 
     async function handlePaymentSubmit(e){
@@ -33,6 +31,7 @@ export default function AddItem({ data, setItem }) {
         const response = await fetch(URL, options)
         const sentData = await response.json()
         console.log("submitted", sentData)
+        window.location.reload()
     }
 
     return (
@@ -42,16 +41,16 @@ export default function AddItem({ data, setItem }) {
                 <div className="w-full md:flex-nowrap gap-4">
                     <form onSubmit={handleMonthSubmit}>
                         <h2>Add Month</h2>
-                        <Input type="month" label="Month" />
+                        <Input isRequired type="month" label="Month" />
                         <h2>Amount</h2>
-                        <Input type="number" label="Amount" placeholder="1600" />
+                        <Input isRequired type="number" label="Amount" placeholder="1600" />
                         <Button><button>Submit</button></Button>
                     </form>
                 </div>
                 <div>
                     <form onSubmit={handlePaymentSubmit}>
                         <h2>Add Payment Made</h2>
-                        <Input type="number" label="Amount" />
+                        <Input isRequired type="number" label="Amount" />
                         <Button><button>Submit</button></Button>
                     </form>
                 </div>
