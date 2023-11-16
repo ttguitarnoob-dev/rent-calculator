@@ -5,6 +5,7 @@ import Owe from './Components/Owe';
 import { useEffect, useState } from 'react';
 import Paid from './Components/Paid';
 import Total from './Components/Total';
+import AddItem from './Components/AddItem';
 
 function App() {
 
@@ -44,6 +45,7 @@ function App() {
       <Owe data={item} />
       <Paid data={item} />
       <Total data={item} />
+      <AddItem data={item} />
     </div>
 </NextUIProvider>
   );

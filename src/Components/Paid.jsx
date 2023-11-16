@@ -13,7 +13,7 @@ export default function Paid({ data }) {
         <div>
             <h1>Paid</h1>
             {data.pays && data.pays.map((oneItem, index) => (
-                <p key={index}>Paid: ${oneItem}</p>
+                <p key={index}>Payment Made: ${oneItem}</p>
             ))}
         </div>
     )
