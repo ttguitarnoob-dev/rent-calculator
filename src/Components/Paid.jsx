@@ -1,11 +1,11 @@
-
+import {CircularProgress} from "@nextui-org/react";
 export default function Paid({ data }) {
 
 
 
-    if (!data) return <div>
-        <h1>Loading Paid Data</h1>
-    </div>
+    // if (!data) return <div>
+    //     <CircularProgress label="Loading..." />
+    // </div>
 
 
 

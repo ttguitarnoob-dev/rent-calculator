@@ -1,11 +1,11 @@
-
+import { Spinner } from "@nextui-org/react"
 export default function Owe({ data }) {
 
 
 
-    if (!data) return <div>
-        <h1>Loading Rent Data</h1>
-    </div>
+    // if (!data) return <div>
+    //    <Spinner label="Loading..." color="warning" />
+    // </div>
 
 
 

@@ -1,8 +1,10 @@
-import logo from './logo.svg';
+import { NextUIProvider } from '@nextui-org/react';
+import { CircularProgress } from '@nextui-org/react';
 import './App.css';
 import Owe from './Components/Owe';
 import { useEffect, useState } from 'react';
 import Paid from './Components/Paid';
+import Total from './Components/Total';
 
 function App() {
 
@@ -30,12 +32,20 @@ function App() {
         handleFetch()
     }, [])
 
+    if (!item) return <div>
+        <CircularProgress label="Loading..." />
+    </div>
+
+
 
   return (
-    <div className="App">
+<NextUIProvider>
+    <div className="App dark text-foreground bg-background">
       <Owe data={item} />
       <Paid data={item} />
+      <Total data={item} />
     </div>
+</NextUIProvider>
   );
 }
 
