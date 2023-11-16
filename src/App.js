@@ -33,10 +33,14 @@ function App() {
         handleFetch()
     }, [])
 
+    function setTheState(data) {
+      setItem(data)
+      console.log('the data', data)
+    }
+
     if (!item) return <div>
         <CircularProgress label="Loading..." />
     </div>
-
 
 
   return (
@@ -45,7 +49,7 @@ function App() {
       <Owe data={item} />
       <Paid data={item} />
       <Total data={item} />
-      <AddItem data={item} />
+      <AddItem data={item} setItem={setTheState} />
     </div>
 </NextUIProvider>
   );

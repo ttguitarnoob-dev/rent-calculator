@@ -1,13 +1,38 @@
 import { Input, Button } from "@nextui-org/react";
-export default function AddItem({ data }) {
+export default function AddItem({ data, setItem }) {
 
     let newData = data
 
     async function handleMonthSubmit(e){
         e.preventDefault()
         console.log('clicked', e.target[1].value)
-        newData.owes.push({month: e.target[0].value, amount: e.target[1].value})
+        newData.owes.push({month: e.target[0].value, amount: parseInt(e.target[1].value)})
         console.log('after append', newData)
+        setItem(newData)
+        console.log('after state', data)
+    }
+
+    async function handlePaymentSubmit(e){
+        e.preventDefault()
+        console.log('clickkkked')
+        newData.pays.push(parseInt(e.target[0].value))
+        console.log('aftrs ubmit', newData)
+        handleFetch(newData)
+    }
+
+    async function handleFetch(data){
+        const URL = "https://api.ttguitarnoob.cloud/rents/6554cb7a60c180217c7a8198"
+        const options = {
+            method: "PUT",
+            body: JSON.stringify(data),
+            headers: {
+                "Content-type": "Application/json"
+            }
+        }
+
+        const response = await fetch(URL, options)
+        const sentData = await response.json()
+        console.log("submitted", sentData)
     }
 
     return (
@@ -24,9 +49,10 @@ export default function AddItem({ data }) {
                     </form>
                 </div>
                 <div>
-                    <form>
+                    <form onSubmit={handlePaymentSubmit}>
                         <h2>Add Payment Made</h2>
                         <Input type="number" label="Amount" />
+                        <Button><button>Submit</button></Button>
                     </form>
                 </div>
             </div>
