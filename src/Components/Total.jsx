@@ -18,7 +18,7 @@ export default function Total({ data }) {
 
     return (
         <div>
-            <h1>Total Remaining: {calculateTotal()}</h1>
+            <h1>Total Remaining: ${calculateTotal()}</h1>
         </div>
     )
 }
