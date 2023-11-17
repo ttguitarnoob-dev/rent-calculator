@@ -12,10 +12,8 @@ function App() {
   const [item, setItem] = useState()
 
   async function handleFetch() {
-    URL = "https://api.ttguitarnoob.cloud/rents/6554cb7a60c180217c7a8198"
-    const options = {
-      method: "GET"
-    }
+    const URL = "https://api.ttguitarnoob.cloud/rents/6554cb7a60c180217c7a8198"
+
 
     try {
       const responst = await fetch(URL)
@@ -38,7 +36,7 @@ function App() {
     console.log('the data', data)
   }
 
-  if (!item) return <div>
+  if (!item) return <div className='loading'>
     <CircularProgress label="Loading..." />
   </div>
 
@@ -54,8 +52,12 @@ function App() {
             <Paid data={item} />
           </div>
         </section>
-        <Total data={item} />
-        <AddItem data={item} setItem={setTheState} />
+        <section className='total-section font-medium text-2xl'>
+          <Total data={item} />
+        </section>
+        <section className='input-section'>
+          <AddItem data={item} setItem={setTheState} />
+        </section>
       </div>
     </NextUIProvider>
   );

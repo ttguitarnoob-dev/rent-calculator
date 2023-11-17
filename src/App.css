@@ -1,7 +1,6 @@
 .App {
   text-align: center;
   height: 100vh;
-  padding: 1rem;
 }
 
 button {
@@ -9,6 +8,10 @@ button {
 }
 
 .data-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
   background-color: rgb(49, 49, 49);
   width: 100vw;
   padding: 2rem;
@@ -17,8 +20,30 @@ button {
 .data-display {
   background-color: black;
   max-width: 300px;
+  min-width: 15rem;
   height: 15rem;
+  overflow: scroll;
   border: 1px solid rgb(110, 110, 110);
   border-radius: 20px;
+  padding: 2rem;
+  margin: 1rem;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  color: white;
+  height: 100vh;
+
+}
+
+.total-section {
+  padding: 2rem;
+  margin: 2rem;
+}
+
+.input-section {
   padding: 2rem;
 }
