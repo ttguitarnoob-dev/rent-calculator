@@ -19,7 +19,6 @@ function App() {
       const responst = await fetch(URL)
       const data = await responst.json()
       setItem(data)
-      console.log('data fetched', data)
     } catch (err) {
       console.log('something terrible happened when fetching', err)
     }
@@ -29,6 +28,7 @@ function App() {
 
   useEffect(() => {
     handleFetch()
+    console.log("why are you looking at the console for this, Heather!")
   }, [])
 
   function setTheState(data) {
